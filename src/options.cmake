@@ -1,0 +1,42 @@
+option (TU_USB_LL      "CPU low level driver name as shown in portable/")
+
+option (TU_USB_DEVICES "List of USB devices to enable")
+option (TU_USB_HOSTS   "List of USB hosts to enable")
+
+option (TU_HAL_LIBS     "libraries to link TinyUSB against")
+option (TU_HAL_INCLUDES "include directories for TinyUSB to search")
+
+option (CFG_TUSB_MCU "MCU to build for")
+
+if (CFG_TUSB_EVERYTHING)
+  set(DEFAULT_VALUE 1)
+else()
+  set(DEFAULT_VALUE 0)
+endif()
+
+option (CFG_TUD_AUDIO       "Number of Audio devices"     ${DEFAULT_VALUE})
+option (CFG_TUD_BTH         "Number of Bluetooth devices" ${DEFAULT_VALUE})
+option (CFG_TUD_CDC         "Number of CDC devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_DFU         "Number of DFU devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_HID         "Number of HID devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_MIDI        "Number of MIDI devices"      ${DEFAULT_VALUE})
+option (CFG_TUD_MSC         "Number of MSC devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_NCM         "Number of NCM devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_NET         "Number of NET devices"       ${DEFAULT_VALUE})
+option (CFG_TUD_TSMC        "Number of TSMC devices"      ${DEFAULT_VALUE})
+option (CFG_TUD_VENDOR      "Number of Vendor devices"    ${DEFAULT_VALUE})
+option (CFG_TUD_VIDEO       "Number of Video devices"     ${DEFAULT_VALUE})
+option (CFG_TUD_USBTMC      "Number of USB TMC devices"   ${DEFAULT_VALUE})
+option (CFG_TUD_DFU_RUNTIME "Number of DFU Runtimes"      ${DEFAULT_VALUE})
+
+option (CFG_TUH_CDC       "Number of CDC host devices"       ${DEFAULT_VALUE})
+option (CFG_TUH_CDC_RNDIS "Number of CDC RNDIS host devices" ${DEFAULT_VALUE})
+option (CFG_TUH_HID       "Number of HID host devices"       ${DEFAULT_VALUE})
+option (CFG_TUH_HUB       "Number of USB Hubs"               ${DEFAULT_VALUE})
+option (CFG_TUH_MIDI      "Number of MIDI host devices"      ${DEFAULT_VALUE})
+option (CFG_TUH_MSC       "Number of MSC host devices"       ${DEFAULT_VALUE})
+option (CFG_TUH_VENDOR    "Number of vendor host devices"    ${DEFAULT_VALUE})
+
+if (NOT TU_USB_LL)
+  message (FATAL_ERROR "TU_USB_LL was not defined!")
+endif ()
